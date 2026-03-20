@@ -18,7 +18,7 @@ export default function Certificate({ winnerName, score, date, onClose }) {
 
       {/* Certificate Container */}
       <div className="flex-1 w-full flex items-center justify-center p-4 md:p-8 print:p-0">
-        <div className="bg-white w-full max-w-[1056px] min-h-[816px] aspect-[11/8.5] shadow-2xl relative overflow-hidden border-[12px] border-double border-amber-200 print:shadow-none print:aspect-auto print:border-none print:w-[100vw] print:h-[100vh] print:m-0 print:absolute print:top-0 print:left-0 flex flex-col">
+        <div className="bg-white w-full max-w-[1056px] min-h-[816px] aspect-[11/8.5] shadow-2xl relative overflow-hidden border-[12px] border-double border-amber-200 print:shadow-none print:border-none print:w-full print:h-full print:max-w-none print:min-h-0 print:m-0 flex flex-col">
           
           {/* Decorative Corner Ornaments */}
           <div className="absolute top-6 left-6 w-20 h-20 border-t-8 border-l-8 border-amber-400 rounded-tl-[40px]"></div>
@@ -100,6 +100,7 @@ export default function Certificate({ winnerName, score, date, onClose }) {
             left: 0;
             top: 0;
             width: 100%;
+            height: 100%;
           }
           @page { size: landscape; margin: 0; }
         }
