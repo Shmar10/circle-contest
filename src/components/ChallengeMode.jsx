@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { calculateScore, getAverageScore } from '../utils/scoring';
 import { 
   Circle, Trophy, Plus, Flag, Download, Printer, RotateCcw, 
-  Trash2, Medal, AlertCircle, Sparkles, ArrowRight, ArrowLeft
+  Trash2, Medal, AlertCircle, Sparkles, ArrowRight, ArrowLeft, Award
 } from 'lucide-react';
 
 export default function ChallengeMode({ onBackToMenu }) {
@@ -133,6 +133,13 @@ export default function ChallengeMode({ onBackToMenu }) {
   const participantsNeedingScores = participants.filter(p => p.rounds.length < currentRound);
   const allCompletedCurrentRound = participants.length > 0 && participantsNeedingScores.length === 0;
 
+  const handleOpenCertificate = () => {
+    const winner = sortedParticipants[0];
+    const score = getAverageScore(winner.rounds);
+    const url = `/?view=certificate&name=${encodeURIComponent(winner.name)}&score=${encodeURIComponent(score)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden pb-12">
       <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/20 blur-[120px] pointer-events-none animate-pulse-slow"></div>
@@ -172,6 +179,9 @@ export default function ChallengeMode({ onBackToMenu }) {
             </div>
             {isFinished && (
               <>
+                <button onClick={handleOpenCertificate} className="flex-1 sm:flex-none flex justify-center items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white rounded-xl transition-all shadow-sm text-sm font-bold">
+                  <Award className="w-4 h-4" /> Certificate
+                </button>
                 <button onClick={handlePrint} className="flex-1 sm:flex-none flex justify-center items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white/80 dark:bg-slate-800/50 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200 border border-slate-200/50 dark:border-slate-700/50 rounded-xl transition-all shadow-sm text-sm font-semibold">
                   <Printer className="w-4 h-4" /> Print
                 </button>

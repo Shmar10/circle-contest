@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Swords, Trophy, Users, Plus, Circle } from 'lucide-react';
+import { ArrowLeft, Swords, Trophy, Users, Plus, Circle, Award } from 'lucide-react';
 import { calculateScore } from '../utils/scoring';
 
 export default function BracketMode({ onBackToMenu }) {
@@ -229,6 +229,12 @@ export default function BracketMode({ onBackToMenu }) {
 
   const numRounds = matches.length;
   // Calculate power of 2 size for layout consistency
+  const handleOpenCertificate = () => {
+    const winner = getTournamentWinner();
+    const url = `/?view=certificate&name=${encodeURIComponent(winner.name)}&score=null`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   const bracketSize = Math.pow(2, numRounds);
 
   return (
@@ -409,6 +415,9 @@ export default function BracketMode({ onBackToMenu }) {
                   <p className="text-slate-500 font-medium mb-10 text-lg">
                     Congratulations to <span className="text-amber-500 font-bold">{getTournamentWinner()?.name}</span> for taking the crown!
                   </p>
+                  <button onClick={handleOpenCertificate} className="px-8 py-4 mb-4 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white rounded-xl font-bold shadow-lg transition-all flex items-center gap-2">
+                    <Award className="w-5 h-5"/> Print Winner's Certificate
+                  </button>
                   <button onClick={() => { setIsSetup(true); setPlayers([]); }} className="px-8 py-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-xl font-bold shadow-md transition-all flex items-center gap-2">
                     <ArrowLeft className="w-5 h-5"/> Start New Tournament
                   </button>
