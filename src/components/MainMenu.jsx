@@ -7,7 +7,7 @@ export default function MainMenu({ onSelectMode }) {
       <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/20 blur-[120px] pointer-events-none animate-pulse-slow"></div>
       <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[50%] rounded-full bg-fuchsia-500/20 blur-[120px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
 
-      <div className="max-w-3xl w-full z-10 glass-panel p-8 md:p-12 rounded-3xl border border-white/20 shadow-2xl animate-slide-up relative overflow-hidden">
+      <div className="max-w-5xl w-full z-10 glass-panel p-8 md:p-12 rounded-3xl border border-white/20 shadow-2xl animate-slide-up relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl mix-blend-multiply pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl mix-blend-multiply pointer-events-none"></div>
         
@@ -23,19 +23,19 @@ export default function MainMenu({ onSelectMode }) {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 relative z-10">
-          {/* Challenge Mode Button */}
+        <div className="grid md:grid-cols-3 gap-6 relative z-10">
+          {/* Multi-Round Mode Button */}
           <button 
-            onClick={() => onSelectMode('challenge')}
-            className="group relative flex flex-col items-start p-6 bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 border-2 border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-500 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl text-left"
+            onClick={() => onSelectMode('multiround')}
+            className="group relative flex flex-col items-start p-6 bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 border-2 border-slate-200/50 dark:border-slate-700/50 hover:border-emerald-500 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl text-left"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-            <div className="p-3 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-xl mb-4 group-hover:scale-110 transition-transform shadow-inner">
-              <Circle className="w-6 h-6" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+            <div className="p-3 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-xl mb-4 group-hover:scale-110 transition-transform shadow-inner">
+              <Sparkles className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Grand Prix Challenge</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">A multi-round endurance test. Accumulate the lowest average error over several draws to win.</p>
-            <div className="flex items-center text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+            <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Classroom Event</h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">Host multiple independent classes or rounds, and automatically crown the Grand Champion!</p>
+            <div className="flex items-center text-emerald-600 dark:text-emerald-400 font-bold text-sm">
               Start Mode <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
@@ -52,6 +52,22 @@ export default function MainMenu({ onSelectMode }) {
             <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">Head-to-Head Bracket</h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">A single-elimination tournament. Face off 1v1 and advance through the bracket to claim victory!</p>
             <div className="flex items-center text-amber-600 dark:text-amber-400 font-bold text-sm">
+              Start Mode <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </button>
+
+          {/* Challenge Mode Button */}
+          <button 
+            onClick={() => onSelectMode('challenge')}
+            className="group relative flex flex-col items-start p-6 bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 border-2 border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-500 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl text-left"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+            <div className="p-3 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-xl mb-4 group-hover:scale-110 transition-transform shadow-inner">
+              <Circle className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Grand Prix Challenge</h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">A multi-round endurance test. Accumulate the lowest average error over several draws to win.</p>
+            <div className="flex items-center text-indigo-600 dark:text-indigo-400 font-bold text-sm">
               Start Mode <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
           </button>

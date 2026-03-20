@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MainMenu from './components/MainMenu';
 import ChallengeMode from './components/ChallengeMode';
 import BracketMode from './components/BracketMode';
+import MultiRoundMode from './components/MultiRoundMode';
 import Certificate from './components/Certificate';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
       {view === 'menu' && <MainMenu onSelectMode={(mode) => setView(mode)} />}
       {view === 'challenge' && <ChallengeMode onBackToMenu={() => setView('menu')} />}
       {view === 'bracket' && <BracketMode onBackToMenu={() => setView('menu')} />}
+      {view === 'multiround' && <MultiRoundMode onBackToMenu={() => setView('menu')} />}
     </>
   );
 }
